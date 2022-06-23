@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -34,11 +35,16 @@ public class Program {
 			System.out.println(s);
 		}
 		
-		System.out.println("=== TEST 2: seller findAll ===");		
+		System.out.println("=== TEST 3: seller findAll ===");		
 		sellers = sellerDao.findAll();		
 		for (Seller s : sellers) {			
 			System.out.println(s);
 		}
+		
+		System.out.println("=== TEST 4: seller insert ===");		
+		Seller seller2 = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, new Department(3, null));	
+		sellerDao.insert(seller2);
+		System.out.println("Inserted! New Id = " + seller2.getId());
 		
 		sc.close();
 		
